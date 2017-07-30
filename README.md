@@ -12,6 +12,8 @@
 	- suffix array
 	- div1 C
 #p5
+	- z algorithm + DP
+	- div1 C
 
 #p6
 
