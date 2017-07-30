@@ -1,0 +1,74 @@
+Lancy 是個第一天接觸演算法競賽的同學, 這天他的學長教他用 Dijkstra 演算法解決最短路徑問題, 而 Lancy 回家練習時上傳到學長要要求的 OJ 結果發現吃了個 Wrong Answer, Lancy 第一個直覺是一定是學長的解答寫錯了, 因為他這輩子從來沒有 WA 過 (廢話, 他第一天寫程式)。結果要到了學長的標程解答, 發現學長真的寫錯了, 一下是學長的 code
+
+```
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MAXN = 30004;
+const long long INF = 1LL<<29;
+
+int n, m;
+long long d[MAXN][MAXN];
+
+int main(){
+	cin >> n >> m;
+	
+	// init	
+	for (int i=1; i<=n; i++){
+		for (int j=1; j<=n; j++){
+			d[i][j] = INF;
+		}
+		d[i][i] = 0;
+	}
+	
+	// input
+	for (int i=1, u, v, w; i<=m; i++){
+		cin >> u >> v >> w;
+		d[v][u] = d[u][v] = min(d[u][v],w);
+	}
+	
+	// Floyd-Warshall
+	for (int k=1; k<=n; k++){
+		for (int i=1; i<=n; i++){
+			for (int j=1; j<=n; j++){
+				d[i][j] = min(d[i][j], max(d[i][k],d[k][j]) )
+			}
+		}
+	}
+	
+	// Query
+	int Q; cin >> Q;
+	while (Q-->0){
+		int s, t;
+		cin >> s >> t;
+		cout << d[s][t] << endl;
+	}
+}
+```
+聰明的 Lancy 發現原來是學長的 Floyd-Warshall 寫錯了, 但告訴學長的回覆卻是：「既然標程錯了, 那就把題目改掉吧，海賊王完結我就會去把題目改掉, 總之你只要跟這支程式輸出的一樣就不會 WA 了」。 無奈的 Lancy 為了獲得 AC 就直接把標程上傳, 但卻得到了 TLE, 請你幫幫 Lancy 寫出一支會 AC 的程式。
+
+輸入說明: 
+看上面的 code
+輸入的 N, M, u, v, w, Q, s ,t 有以下限制
+1<= N, M, w, Q <= 30000
+1<= u, v, s, t <= N
+
+
+輸出說明:
+看上面的 code
+
+範例輸入:
+4 3
+1 2 1
+2 3 2
+3 1 5
+3
+1 2
+1 3
+1 4
+
+範例輸出:
+1
+2
+536870912
+
