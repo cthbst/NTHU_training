@@ -15,7 +15,9 @@
 	- z algorithm + DP
 	- div1 C
 
-#p6
+#p6	
+	- KMP
+	- div1 B
 
 #p7
 
