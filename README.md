@@ -25,5 +25,6 @@
 	- div1 C
 
 #p8
-	
+	- KMP + dp
+	- div1 A	
 
