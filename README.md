@@ -13,15 +13,16 @@
 	- div1 C
 #p5
 	- z algorithm + DP
-	- div1 C
+	- div1 B
 
 #p6	
 	- KMP
 	- div1 B
 
 #p7
+	- SAM + dp
+	- div1 C
 
 #p8
-
-
+	
 
